@@ -19,7 +19,7 @@ import torchvision
 class option:
 
     def __init__(self):
-        self.cuda = False  # use cuda?
+        self.cuda = True  # use cuda?
         # change True.
         self.batchSize = 4  # training batch size
         self.testBatchSize = 4  # testing batch size
@@ -32,7 +32,7 @@ class option:
         self.colordim = 1
         self.save_step = 20 # In training, save the training results
         self.target_mode = 'seg' # seg task.
-        self.pretrain_net = "./datasets/unet/model_epoch_140.pth"
+        self.pretrain_net = "/root/datasets/CNN/model_epoch_1.pth"
         # change pretrain_net. default pretrained is False.
 
 
@@ -152,7 +152,7 @@ def train(epoch):
             imgout = output.data / 2 + 1
             # change! can use os.path.exists() to distinguish a floder/file exit or not.
             torchvision.utils.save_image(
-                imgout, "./result/epch_" + str(epoch) + "_" + str(iteration) + '.jpg')
+                imgout, "/root/result/epch_" + str(epoch) + "_" + str(iteration) + '.jpg')
     print("===> Epoch {} Complete: Avg. Loss: {:.4f}".format(
         epoch, epoch_loss / len(training_data_loader)))
 
@@ -180,7 +180,7 @@ def test():
 def checkpoint(epoch):
     # change the save checkpoint path.
     # change! can use os.path.exists() to distinguish a floder/file exit or not.
-    model_out_path = "./model/model_epoch_{}.pth".format(
+    model_out_path = "/root/model/model_epoch_{}.pth".format(
         epoch)
     torch.save(unet.state_dict(), model_out_path)
     print("Checkpoint saved to {}".format(model_out_path))

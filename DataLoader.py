@@ -18,20 +18,20 @@ def input_transform(crop_size):
 
 def get_training_set(size, target_mode='seg', colordim=1):
     # change! use train_dir.
-    train_dir = "./datasets/training_dataset"
+    train_dir = "/root/datasets/CNN/Training_Set"
     # assert
     assert train_dir, "Please put the datasets in the floder"
     return DatasetFromFolder(train_dir, target_mode, colordim,
                              input_transform=input_transform(size),
                              target_transform=input_transform(size))
 
-def get_test_set(size, target_mode='seg', colordim=1):
+def get_test_set(size, target_mode='bon', colordim=1):
     # change the get_test_set, refer to get_training_set().
     # can be refer to training_dataset to struct the testing datasets.
     # the training_dataset and testing_dataset structure could be same, in this way, the class DatasetFromFolder can
     # be reuse!
     # change! use train_dir.
-    test_dir = "./datasets/testing_dataset"
+    test_dir = "/root/datasets/CNN/Testing1_Set"
     # assert
     assert test_dir, "Please put the datasets in the floder"
     return DatasetFromFolder(test_dir, target_mode, colordim,
