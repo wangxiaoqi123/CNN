@@ -21,9 +21,9 @@ class option:
     def __init__(self):
         self.cuda = True  # use cuda?
         # change True.
-        self.batchSize = 4  # training batch size
-        self.testBatchSize = 4  # testing batch size
-        self.nEpochs = 1  # umber of epochs to train for
+        self.batchSize = 1  # training batch size
+        self.testBatchSize = 1  # testing batch size
+        self.nEpochs = 2  # umber of epochs to train for
         self.lr = 0.001  # Learning Rate. Default=0.01
         self.threads = 8  # number of threads for data loader to use
         self.seed = 123  # random seed to use. Default=123
@@ -144,7 +144,7 @@ def train(epoch):
         loss.backward()
         optimizer.step()
 
-        if iteration % 10 is 0:
+        if iteration % 40 is 0:
             print("===> Epoch[{}]({}/{}): Loss: {:.4f}".format(epoch,
                                                                iteration, len(training_data_loader), loss.data[0]))
         # save training results
