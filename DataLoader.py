@@ -80,7 +80,7 @@ class DatasetFromFolder(data.Dataset):
         # change all the load_img()!
         input_batch = load_img(os.path.join(self.image_dir, "images", self.image_filenames[index]), self.colordim)
         if self.target_mode == 'seg':
-            target = load_img(os.path.join(self.image_dir, "ground_truth", self.image_filenames[index]), 1)
+            target = load_img(os.path.join(self.image_dir, "mask", self.image_filenames[index]), 1)
         else:
             # TODO: If there are other tasks, it could be load data in here.
             pass
