@@ -23,14 +23,14 @@ class option:
         # change True.
         self.batchSize = 1  # training batch size
         self.testBatchSize = 1  # testing batch size
-        self.nEpochs = 2  # umber of epochs to train for
+        self.nEpochs = 100  # umber of epochs to train for
         self.lr = 0.001  # Learning Rate. Default=0.01
         self.threads = 8  # number of threads for data loader to use
         self.seed = 123  # random seed to use. Default=123
         self.size = 128 # change, 128.
         # self.remsize = 20 # change, temporarily not need
         self.colordim = 1
-        self.save_step = 20 # In training, save the training results
+        self.save_step = 40 # In training, save the training results
         self.target_mode = 'seg' # seg task.
         self.pretrain_net = "/root/datasets/CNN/model_epoch_1.pth"
         # change pretrain_net. default pretrained is False.
