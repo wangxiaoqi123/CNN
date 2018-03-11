@@ -97,7 +97,7 @@ print('===> Building unet')
 unet = UNet(opt.colordim)
 
 
-criterion = nn.MSELoss()
+criterion = nn.SoftMarginLoss()
 if cuda:
     unet = unet.cuda()
     criterion = criterion.cuda()
@@ -107,7 +107,7 @@ pretrained = False
 if pretrained:
     unet.load_state_dict(torch.load(opt.pretrain_net))
 
-optimizer = optim.SGD(unet.parameters(), lr=opt.lr)
+optimizer = optim.Adam(unet.parameters(), lr=opt.lr)
 print('===> Training unet')
 
 
