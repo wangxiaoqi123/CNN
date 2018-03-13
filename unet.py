@@ -112,7 +112,7 @@ class UNet(nn.Module):
         xup = F.relu(self.conv9_3(
             F.relu(self.conv9_2(F.relu(self.conv9_1(xup))))))  # x9out
 
-        return F.tanh(self.bn9(xup))
+        return F.softsign(self.bn9(xup))
 
     def _initialize_weights(self):
         for m in self.modules():
