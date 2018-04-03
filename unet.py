@@ -14,21 +14,21 @@ class UNet(nn.Module):
     def __init__(self, colordim=1):
         super(UNet, self).__init__()
         # input of (n,n,1), output of (n-2,n-2,64)
-        self.conv1 = nn.Conv2d(colordim, 64, 3, 1, 1)
+        self.conv1 = nn.Conv2d(colordim, 64, 3, 1, 1 ,4)
         self.bn1 = nn.BatchNorm2d(64)
-        self.conv2 = nn.Conv2d(64, 64, 3, 1, 1)
+        self.conv2 = nn.Conv2d(64, 64, 3, 1, 1,4)
         self.bn2 = nn.BatchNorm2d(64)
         self.bn2_out = nn.BatchNorm2d(128)
-        self.conv3 = nn.Conv2d(128, 128, 3, 1, 1)
+        self.conv3 = nn.Conv2d(128, 128, 3, 1, 1,4)
         self.bn3 = nn.BatchNorm2d(128)
         self.bn3_out = nn.BatchNorm2d(256)
-        self.conv4 = nn.Conv2d(256, 256, 3, 1, 1)
+        self.conv4 = nn.Conv2d(256, 256, 3, 1, 1,4
         self.bn4 = nn.BatchNorm2d(256)
         self.bn4_out = nn.BatchNorm2d(512)
-        self.conv5 = nn.Conv2d(512, 512, 3, 1, 1)
+        self.conv5 = nn.Conv2d(512, 512, 3, 1, 1,4
         self.bn5 = nn.BatchNorm2d(512)
         self.bn5_out = nn.BatchNorm2d(1024)
-        self.conv6 = nn.Conv2d(1024, colordim, 1, 1, 0)
+        self.conv6 = nn.Conv2d(1024, colordim, 1, 1, 0,4)
         self.bn6 = nn.BatchNorm2d(colordim)
         self._initialize_weights()
 
