@@ -36,7 +36,7 @@ class DecoderBlock(nn.Module):
         return self.block(x)
 
 
-class UNet11(nn.Module):
+class UNet(nn.Module):
     def __init__(self, num_filters=32, pretrained=False):
         """
         :param num_classes:
@@ -89,7 +89,7 @@ class UNet11(nn.Module):
         return self.final(dec1)
 
 
-def unet11(pretrained=False, **kwargs):
+def unet(pretrained=False, **kwargs):
     """
     pretrained:
             False - no pre-trained network is used
@@ -97,7 +97,7 @@ def unet11(pretrained=False, **kwargs):
             carvana - all weights are pre-trained on
                 Kaggle: Carvana dataset https://www.kaggle.com/c/carvana-image-masking-challenge
     """
-    model = UNet11(pretrained=pretrained, **kwargs)
+    model = UNet(pretrained=pretrained, **kwargs)
 
     if pretrained == 'carvana':
         state = torch.load('TernausNet.pt')
